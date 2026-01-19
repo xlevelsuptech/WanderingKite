@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { MapPin, Mail, Phone, Instagram, Youtube, Linkedin, Clock } from 'lucide-react';
-import { useState } from 'react';
 
 const services = [
     { name: 'Photography', href: '/photography' },
@@ -18,42 +17,31 @@ const legal = [
 ];
 
 export function Footer() {
-    const [email, setEmail] = useState('');
-    const [subscribed, setSubscribed] = useState(false);
-
-    const handleSubscribe = (e: React.FormEvent) => {
-        e.preventDefault();
-        // In production, integrate with your email service
-        setSubscribed(true);
-        setTimeout(() => setSubscribed(false), 3000);
-    };
-
     return (
         <footer className="border-t border-zinc-800 bg-zinc-950">
-            {/* Newsletter Section */}
-            <div className="border-b border-zinc-800 bg-zinc-900/30">
+            {/* Instagram Follow CTA */}
+            <div className="border-b border-zinc-800 bg-gradient-to-r from-purple-900/20 via-pink-900/20 to-orange-900/20">
                 <div className="container mx-auto px-6 py-12">
                     <div className="mx-auto max-w-2xl text-center">
+                        <div className="mb-4 flex justify-center">
+                            <Instagram className="h-12 w-12 text-pink-500" />
+                        </div>
                         <h3 className="mb-2 text-2xl font-bold">Get 10% Off Your First Rental</h3>
                         <p className="mb-6 text-zinc-400">
-                            Subscribe to our newsletter for exclusive deals and creative tips
+                            Follow us on Instagram for exclusive deals, behind-the-scenes content, and creative inspiration
                         </p>
-                        <form onSubmit={handleSubscribe} className="flex gap-3">
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Enter your email"
-                                required
-                                className="flex-1 rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-3 text-white placeholder-zinc-500 focus:border-zinc-700 focus:outline-none"
-                            />
-                            <button
-                                type="submit"
-                                className="rounded-lg bg-white px-8 py-3 font-semibold text-zinc-950 transition-colors hover:bg-zinc-200"
-                            >
-                                {subscribed ? '✓ Subscribed!' : 'Subscribe'}
-                            </button>
-                        </form>
+                        <a
+                            href="https://instagram.com/wanderingkitestudio"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 px-8 py-4 font-semibold text-white transition-all hover:from-purple-500 hover:to-pink-500 hover:shadow-lg hover:shadow-pink-500/50"
+                        >
+                            <Instagram className="h-5 w-5" />
+                            Follow @wanderingkitestudio
+                        </a>
+                        <p className="mt-4 text-xs text-zinc-500">
+                            DM us "FIRST10" after following to claim your discount
+                        </p>
                     </div>
                 </div>
             </div>
@@ -148,7 +136,7 @@ export function Footer() {
                             <li className="flex items-center gap-2">
                                 <Phone className="h-4 w-4" />
                                 <a href="tel:+919876543210" className="hover:text-white">
-                                    +91 98765 43210
+                                    +91 70100 92090
                                 </a>
                             </li>
                             <li className="flex items-center gap-2">

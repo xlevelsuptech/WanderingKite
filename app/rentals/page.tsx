@@ -1,7 +1,12 @@
 import type { Metadata } from 'next';
 import { BookingFlyout } from '@/components/booking/BookingFlyout';
+import { Footer } from '@/components/shared/Footer';
+import { Testimonials } from '@/components/sections/Testimonials';
+import { ProcessTimeline } from '@/components/sections/ProcessTimeline';
+import { ServiceFAQ } from '@/components/sections/ServiceFAQ';
 import { EquipmentCard } from '@/components/services/EquipmentCard';
 import { equipmentCatalog } from '@/lib/equipment-data';
+import { rentalsTestimonials, rentalsProcessSteps, rentalsFAQs } from '@/lib/service-page-data';
 import { Video, Shield, Headphones } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -171,7 +176,17 @@ export default function RentalsPage() {
                 </div>
             </section>
 
+            {/* Testimonials */}
+            <Testimonials testimonials={rentalsTestimonials} accentColor="blue" />
+
+            {/* Process Timeline */}
+            <ProcessTimeline steps={rentalsProcessSteps} accentColor="blue" />
+
+            {/* FAQ */}
+            <ServiceFAQ faqs={rentalsFAQs} accentColor="blue" />
+
             <BookingFlyout service="rentals" />
+            <Footer />
         </main>
     );
 }

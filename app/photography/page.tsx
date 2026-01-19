@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
 import { BookingFlyout } from '@/components/booking/BookingFlyout';
+import { Footer } from '@/components/shared/Footer';
+import { Testimonials } from '@/components/sections/Testimonials';
+import { ProcessTimeline } from '@/components/sections/ProcessTimeline';
+import { ServiceFAQ } from '@/components/sections/ServiceFAQ';
 import { generateWhatsAppLink } from '@/lib/whatsapp';
 import { Camera, Clock, MapPin } from 'lucide-react';
 
@@ -21,6 +25,76 @@ const portfolioImages = [
     { id: 4, category: 'Events', alt: 'Event photography sample' },
     { id: 5, category: 'Lifestyle', alt: 'Lifestyle photography sample' },
     { id: 6, category: 'Portraits', alt: 'Portrait photography sample' },
+];
+
+const testimonials = [
+    {
+        name: 'Priya & Rahul',
+        role: 'Wedding Clients',
+        content: 'The team captured our wedding beautifully! Every candid moment, every emotion - perfectly preserved. The photos exceeded our expectations.',
+        rating: 5,
+        service: 'Wedding Photography',
+    },
+    {
+        name: 'Ankit Sharma',
+        role: 'Startup Founder',
+        content: 'Professional and creative. They understood our brand vision and delivered stunning product shots for our launch campaign.',
+        rating: 5,
+        service: 'Commercial Photography',
+    },
+    {
+        name: 'Meera Patel',
+        role: 'Content Creator',
+        content: 'Best lifestyle shoot experience! The photographer made me feel comfortable and the results were Instagram-perfect. Highly recommend!',
+        rating: 5,
+        service: 'Lifestyle Photography',
+    },
+];
+
+const processSteps = [
+    {
+        number: '1',
+        title: 'Initial Consultation',
+        description: 'Contact us via WhatsApp to discuss your requirements, vision, and preferred dates. We\'ll provide a custom quote based on your needs.',
+    },
+    {
+        number: '2',
+        title: 'Booking Confirmation',
+        description: 'Once you approve the quote, we\'ll send a booking agreement and invoice. A 30% advance secures your date.',
+    },
+    {
+        number: '3',
+        title: 'The Shoot',
+        description: 'On the day, our photographer arrives early to capture every moment. We work unobtrusively to get authentic, candid shots.',
+    },
+    {
+        number: '4',
+        title: 'Editing & Delivery',
+        description: 'Within 7-10 days, receive professionally edited high-resolution images via cloud link. Unlimited revisions included.',
+    },
+];
+
+const faqs = [
+    {
+        question: 'How far in advance should I book?',
+        answer: 'For events and weddings, we recommend booking at least 30 days in advance. For lifestyle and portrait sessions, 7-14 days is usually sufficient. Last-minute bookings may be accommodated based on availability.',
+    },
+    {
+        question: 'Do you travel for destination shoots?',
+        answer: 'Yes! We cover destination weddings and events across India. Travel and accommodation costs are additional and will be included in your custom quote.',
+    },
+    {
+        question: 'How many edited photos will I receive?',
+        answer: 'This varies by package: Events (200-300 photos), Weddings (500-800 photos), Lifestyle sessions (50-100 photos). All photos are professionally edited and color-corrected.',
+    },
+    {
+        question: 'Can I request specific shots or styles?',
+        answer: 'Absolutely! During the consultation, share your Pinterest boards, reference photos, or specific must-have shots. We\'ll create a shot list to ensure we capture everything you want.',
+    },
+    {
+        question: 'What if the weather is bad on the shoot day?',
+        answer: 'For outdoor shoots, we monitor weather forecasts closely. If conditions are unfavorable, we can reschedule at no extra cost or suggest indoor alternatives/backup locations.',
+    },
 ];
 
 export default function PhotographyPage() {
@@ -170,7 +244,17 @@ export default function PhotographyPage() {
                 </div>
             </section>
 
+            {/* Testimonials */}
+            <Testimonials testimonials={testimonials} accentColor="amber" />
+
+            {/* Process Timeline */}
+            <ProcessTimeline steps={processSteps} accentColor="amber" />
+
+            {/* FAQ */}
+            <ServiceFAQ faqs={faqs} accentColor="amber" />
+
             <BookingFlyout service="photography" />
+            <Footer />
         </main>
     );
 }

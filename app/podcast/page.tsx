@@ -1,6 +1,11 @@
 import type { Metadata } from 'next';
 import { BookingFlyout } from '@/components/booking/BookingFlyout';
+import { Footer } from '@/components/shared/Footer';
+import { Testimonials } from '@/components/sections/Testimonials';
+import { ProcessTimeline } from '@/components/sections/ProcessTimeline';
+import { ServiceFAQ } from '@/components/sections/ServiceFAQ';
 import { generateWhatsAppLink } from '@/lib/whatsapp';
+import { podcastTestimonials, podcastProcessSteps, podcastFAQs } from '@/lib/service-page-data';
 import { Mic, Headphones, Radio, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -106,8 +111,8 @@ export default function PodcastPage() {
                             <div
                                 key={pkg.name}
                                 className={`relative rounded-2xl border p-8 ${pkg.popular
-                                        ? 'border-green-500 bg-green-500/5'
-                                        : 'border-zinc-800 bg-zinc-900/50'
+                                    ? 'border-green-500 bg-green-500/5'
+                                    : 'border-zinc-800 bg-zinc-900/50'
                                     }`}
                             >
                                 {pkg.popular && (
@@ -133,8 +138,8 @@ export default function PodcastPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`block w-full rounded-lg py-3 text-center font-semibold transition-colors ${pkg.popular
-                                            ? 'bg-green-500 text-white hover:bg-green-400'
-                                            : 'bg-white text-zinc-900 hover:bg-zinc-200'
+                                        ? 'bg-green-500 text-white hover:bg-green-400'
+                                        : 'bg-white text-zinc-900 hover:bg-zinc-200'
                                         }`}
                                 >
                                     Book Now
@@ -194,7 +199,17 @@ export default function PodcastPage() {
                 </div>
             </section>
 
+            {/* Testimonials */}
+            <Testimonials testimonials={podcastTestimonials} accentColor="green" />
+
+            {/* Process Timeline */}
+            <ProcessTimeline steps={podcastProcessSteps} accentColor="green" />
+
+            {/* FAQ */}
+            <ServiceFAQ faqs={podcastFAQs} accentColor="green" />
+
             <BookingFlyout service="podcast" />
+            <Footer />
         </main>
     );
 }

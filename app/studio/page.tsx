@@ -1,6 +1,11 @@
 import type { Metadata } from 'next';
 import { BookingFlyout } from '@/components/booking/BookingFlyout';
+import { Footer } from '@/components/shared/Footer';
+import { Testimonials } from '@/components/sections/Testimonials';
+import { ProcessTimeline } from '@/components/sections/ProcessTimeline';
+import { ServiceFAQ } from '@/components/sections/ServiceFAQ';
 import { generateWhatsAppLink } from '@/lib/whatsapp';
+import { studioTestimonials, studioProcessSteps, studioFAQs } from '@/lib/service-page-data';
 import { Building2, Maximize, Lightbulb, Wifi } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -106,8 +111,8 @@ export default function StudioPage() {
                             <div
                                 key={tier.name}
                                 className={`relative rounded-2xl border p-8 ${tier.popular
-                                        ? 'border-purple-500 bg-purple-500/5'
-                                        : 'border-zinc-800 bg-zinc-900/50'
+                                    ? 'border-purple-500 bg-purple-500/5'
+                                    : 'border-zinc-800 bg-zinc-900/50'
                                     }`}
                             >
                                 {tier.popular && (
@@ -133,8 +138,8 @@ export default function StudioPage() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={`block w-full rounded-lg py-3 text-center font-semibold transition-colors ${tier.popular
-                                            ? 'bg-purple-500 text-white hover:bg-purple-400'
-                                            : 'bg-white text-zinc-900 hover:bg-zinc-200'
+                                        ? 'bg-purple-500 text-white hover:bg-purple-400'
+                                        : 'bg-white text-zinc-900 hover:bg-zinc-200'
                                         }`}
                                 >
                                     Book Now
@@ -174,7 +179,17 @@ export default function StudioPage() {
                 </div>
             </section>
 
+            {/* Testimonials */}
+            <Testimonials testimonials={studioTestimonials} accentColor="purple" />
+
+            {/* Process Timeline */}
+            <ProcessTimeline steps={studioProcessSteps} accentColor="purple" />
+
+            {/* FAQ */}
+            <ServiceFAQ faqs={studioFAQs} accentColor="purple" />
+
             <BookingFlyout service="studio" />
+            <Footer />
         </main>
     );
 }
