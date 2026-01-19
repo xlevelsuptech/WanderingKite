@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '919876543210'; // Replace with actual Wandering Kite number
+const WHATSAPP_NUMBER = '917010092090'; // Replace with actual Wandering Kite number
 
 export function generateWhatsAppLink(
     service?: string,

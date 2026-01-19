@@ -47,7 +47,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 Update the WhatsApp number in `lib/whatsapp.ts`:
 
 ```typescript
-const WHATSAPP_NUMBER = '919876543210'; // Replace with your number
+const WHATSAPP_NUMBER = '917010092090'; // Replace with your number
 ```
 
 ### SEO Metadata

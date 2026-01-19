@@ -2,6 +2,11 @@
 
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { TrustSection } from "@/components/shared/TrustSection";
+import { Footer } from "@/components/shared/Footer";
+import { HowItWorks } from "@/components/sections/HowItWorks";
+import { TechSpecs } from "@/components/sections/TechSpecs";
+import { PortfolioWall } from "@/components/sections/PortfolioWall";
+import { FAQ } from "@/components/sections/FAQ";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { StaggerContainer } from "@/components/animations/StaggerContainer";
 import { Camera, Video, Building2, Mic } from "lucide-react";
@@ -95,10 +100,25 @@ export default function HomePage() {
                 </StaggerContainer>
             </section>
 
+            {/* How It Works */}
+            <HowItWorks />
+
+            {/* Tech Specs */}
+            <TechSpecs />
+
             {/* Trust Section */}
             <FadeIn>
                 <TrustSection />
             </FadeIn>
+
+            {/* Portfolio Wall */}
+            {/* <PortfolioWall /> */}
+
+            {/* FAQ */}
+            <FAQ />
+
+            {/* Footer */}
+            <Footer />
         </main>
     );
 }
